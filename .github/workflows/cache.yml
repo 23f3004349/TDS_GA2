@@ -13,6 +13,12 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # 🔹 Create cache content so cache-hit becomes true/false
+      - name: Prepare cache directory
+        run: |
+          mkdir -p ~/.cache
+          echo "test" > ~/.cache/sample.txt
+
       - name: Cache dependencies
         id: cache-step
         uses: actions/cache@v4
